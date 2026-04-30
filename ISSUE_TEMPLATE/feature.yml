@@ -1,0 +1,44 @@
+name: Feature request
+description: A concrete proposal for new behaviour.
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For open-ended ideas or "should we...?" questions, prefer [Discussions](https://github.com/plinth-dev/platform/discussions). Issues are for actionable proposals — something a maintainer or contributor could pick up and ship.
+  - type: input
+    id: package
+    attributes:
+      label: Package or component
+      placeholder: "@plinth-dev/forms, sdk-go/paginate, platform, cli, docs, ..."
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is the user-facing problem? What can't you do today, or what's awkward?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should the API / behaviour look like?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have searched existing issues and Discussions and this is not a duplicate.
+          required: true
+        - label: This is in scope for Plinth (it builds on the substrate, SDK, scaffolder, or starters).
+          required: true

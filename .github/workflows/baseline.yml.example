@@ -1,0 +1,41 @@
+# Example caller workflow that pulls in the org-wide baseline checks.
+# Copy this into <repo>/.github/workflows/baseline.yml and adjust the
+# `languages` argument for CodeQL based on what's in the repo.
+#
+# Renamed with the .example suffix so GitHub Actions doesn't try to run it
+# from the .github repo itself.
+
+name: Baseline checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    # Weekly CodeQL scan on Mondays at 06:00 UTC
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+  pull-requests: write
+  security-events: write
+  actions: read
+
+jobs:
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    uses: plinth-dev/.github/.github/workflows/dependency-review.yml@main
+
+  commit-lint:
+    if: github.event_name == 'pull_request'
+    uses: plinth-dev/.github/.github/workflows/commit-lint.yml@main
+
+  codeql:
+    uses: plinth-dev/.github/.github/workflows/codeql.yml@main
+    with:
+      # Adjust this list to match what's in the repo:
+      #   ["go"]
+      #   ["javascript-typescript"]
+      #   ["go", "javascript-typescript"]
+      languages: '["go"]'

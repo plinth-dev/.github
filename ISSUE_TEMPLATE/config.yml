@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or proposal
+    url: https://github.com/plinth-dev/platform/discussions
+    about: Use Discussions for questions, proposals, and "is this a bug?" — issues are for actionable bugs and features.
+  - name: Security disclosure
+    url: https://github.com/plinth-dev/.github/blob/main/SECURITY.md
+    about: Do not file an issue. Email security@plinth.run.

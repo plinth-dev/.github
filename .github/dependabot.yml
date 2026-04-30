@@ -1,0 +1,17 @@
+# Dependabot config for the .github repo itself (only GitHub Actions version
+# bumps). Application repos use Renovate (see renovate.template.json in this
+# repo for a starter).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+    labels:
+      - dependencies

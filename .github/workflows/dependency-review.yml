@@ -1,0 +1,31 @@
+# Reusable workflow: dependency review.
+# Call from another repo's workflow:
+#   jobs:
+#     dependency-review:
+#       uses: plinth-dev/.github/.github/workflows/dependency-review.yml@main
+#
+# Runs on pull_request only — that's where dependency-review-action operates.
+name: Reusable — dependency review
+
+on:
+  workflow_call:
+    inputs:
+      fail-on-severity:
+        type: string
+        default: high
+        description: Minimum severity that fails the workflow (low | moderate | high | critical).
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Dependency review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: ${{ inputs.fail-on-severity }}
+          comment-summary-in-pr: on-failure
