@@ -33,8 +33,7 @@
     },
     {
       "description": "Critical CVE fixes — never wait for the weekly window.",
-      "matchPackagePatterns": ["*"],
-      "matchCurrentVersion": "!@",
+      "matchPackageNames": ["*"],
       "vulnerabilityAlerts": {
         "schedule": ["at any time"],
         "prCreation": "immediate"

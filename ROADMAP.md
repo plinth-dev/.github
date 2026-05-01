@@ -45,4 +45,4 @@ Open an [issue](https://github.com/plinth-dev/platform/issues) tagged `roadmap` 
 
 ## Quarterly retros
 
-Retros land as blog posts on https://plinth.run/blog. The first one is scheduled for the close of Phase B.
+Retros land as blog posts on the docs site (`/blog`, lands in Phase F). The first one is scheduled for the close of Phase B.

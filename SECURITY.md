@@ -13,7 +13,7 @@ Include, where possible:
 - Affected versions, packages, and components.
 - Whether the issue is already public; if so, where.
 
-If you'd like to encrypt the report, our PGP key is at https://plinth.run/.well-known/pgp-key.txt (fingerprint published on the docs site).
+If you'd like to encrypt the report, ask in the same email and we'll respond with our PGP key. (We will publish a stable PGP key + fingerprint on the docs site as part of Phase F.)
 
 ## Response timeline
 
@@ -45,4 +45,4 @@ While Plinth is in `0.x`, we patch the **most recent minor release** only. Once 
 
 ## Hall of fame
 
-We publicly acknowledge reporters who request it on https://plinth.run/security/acknowledgements.
+We publicly acknowledge reporters who request it. (The acknowledgements page lands as part of Phase F at `https://plinth.run/security/acknowledgements`. Until then, ask for acknowledgement in your report and we'll list you on the docs site when it ships.)

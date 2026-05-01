@@ -11,7 +11,7 @@ Org-wide GitHub configuration for [`plinth-dev`](https://github.com/plinth-dev):
 | [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md) | Contributor Covenant 2.1. |
 | [`SECURITY.md`](./SECURITY.md) | Responsible disclosure policy. `security@plinth.run`. |
 | [`ROADMAP.md`](./ROADMAP.md) | The six phases. Public, updated quarterly. |
-| [`workflows/`](./workflows/) | Reusable GitHub Actions workflows pulled in by every repo. |
+| [`.github/workflows/`](./.github/workflows/) | Reusable GitHub Actions workflows pulled in by every repo. |
 | [`ISSUE_TEMPLATE/`](./ISSUE_TEMPLATE/) | Default issue templates inherited by all repos that don't override them. |
 | [`PULL_REQUEST_TEMPLATE.md`](./PULL_REQUEST_TEMPLATE.md) | Default PR template. |
 
