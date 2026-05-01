@@ -1,5 +1,7 @@
 # Plinth
 
+> **v0.1.0 just shipped (2026-05-01).** A working SDK across Go and TypeScript, two starters, a CLI, a Backstage scaffolder, a Helm chart, and a worked example — all stable, all open, MIT. Read the [launch announcement](https://plinth.run/launch/v0-1-0/).
+
 **The load-bearing base for enterprise internal tooling.**
 
 You run a fleet of internal applications — project management, change requests, audit dashboards, HR tooling, internal admin. Modules that began as starters and grew. Every module re-implements the same plumbing: identity, authorization, audit, observability, deployment. Every module inherits the same gaps: a session secret committed in `.env.example`, an authorization layer that fails open in dev mode, no real healthcheck, no error boundaries, no centralized logs.
@@ -51,12 +53,17 @@ It is opinionated where opinions reduce cognitive load, and silent where teams d
 ## Get started
 
 ```bash
-# Stand up the platform on a fresh Kubernetes cluster
-helm install plinth oci://ghcr.io/plinth-dev/platform --values dev.values.yaml
+# Generate a fully-wired module pair (web + API)
+go install github.com/plinth-dev/cli/cmd/plinth@v0.1.1
+plinth new my-module --module-path github.com/your-org/my-module-api
 
-# Generate a fully-wired module
-plinth new my-module --web --api
+# Stand up the substrate on a Kubernetes cluster (dev profile)
+git clone https://github.com/plinth-dev/platform && cd platform
+helm dependency build .
+helm install plinth . --namespace plinth --create-namespace -f values/dev.values.yaml
 ```
+
+The OCI publish (`helm install plinth oci://ghcr.io/plinth-dev/platform`) is on the v0.2 roadmap.
 
 ## Repositories
 
@@ -66,9 +73,10 @@ plinth new my-module --web --api
 | [`sdk-go`](https://github.com/plinth-dev/sdk-go) | Go SDK packages — fail-closed authz, audit, OTel, typed errors, and more. |
 | [`sdk-ts`](https://github.com/plinth-dev/sdk-ts) | TypeScript SDK packages — `@plinth-dev/authz-react`, `api-client`, `forms`, `tables`, and more. |
 | [`starter-web`](https://github.com/plinth-dev/starter-web) | Next.js 16 module starter, wired to the SDK. |
-| [`starter-api`](https://github.com/plinth-dev/starter-api) | Go 1.23 module starter, wired to the SDK. |
+| [`starter-api`](https://github.com/plinth-dev/starter-api) | Go 1.25 module starter, wired to the SDK. |
 | [`cli`](https://github.com/plinth-dev/cli) | The `plinth` CLI for scaffolding new modules. |
 | [`scaffolder`](https://github.com/plinth-dev/scaffolder) | Backstage software template — same output as the CLI, in-portal. |
+| [`example-access-requests`](https://github.com/plinth-dev/example-access-requests) | Worked example: temp-prod-access requests with approver workflow. Exercises every SDK at once. |
 | [`docs`](https://github.com/plinth-dev/docs) | Source for [plinth.run](https://plinth.run) — architecture, tutorials, ADRs. |
 
 ## Community
